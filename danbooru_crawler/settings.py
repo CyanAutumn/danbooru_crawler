@@ -8,8 +8,9 @@
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 BOT_NAME = "danbooru_crawler"
-SEARCH_KEYS = "set"
-SEARCH_TYPE = 0  # 0代表缩略图，更适合训练，1代表原图，比较大
+SEARCH_TAG = "set"
+SEARCH_TYPE = 0  # 0 / 1 是否抓取缩略图，0代表抓缩略图，1代表原图
+SEARCH_LINK = False  # True / False 连锁搜索(即搜索子图，训练画风可以打开，训练概念等会出现与tag特征不符的图导致污染训练集)
 
 SPIDER_MODULES = ["danbooru_crawler.spiders"]
 NEWSPIDER_MODULE = "danbooru_crawler.spiders"
