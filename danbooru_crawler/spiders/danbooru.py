@@ -49,7 +49,7 @@ class DanbooruSpider(scrapy.Spider):
             pic_url = response.xpath("//section/picture/source/@srcset").get()
         elif settings.SEARCH_TYPE == 1:
             pic_url = response.xpath(
-                '//a[@class="image-view-original-link"]/@href'
+                '//li/a[@class="image-view-original-link"]/@href'
             ).get()
         self.logger.info(f"图片url {pic_url}")
         img_items = items.ImagedownloadItem()
