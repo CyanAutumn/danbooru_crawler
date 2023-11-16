@@ -8,7 +8,8 @@
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 BOT_NAME = "danbooru_crawler"
-SEARCH_KEYS = "group_sex+doggystyle"
+SEARCH_KEYS = "jyt+blue_archive"
+SEARCH_TYPE = 1  # 0代表略缩图，更适合训练，1代表原图，比较大
 
 SPIDER_MODULES = ["danbooru_crawler.spiders"]
 NEWSPIDER_MODULE = "danbooru_crawler.spiders"
