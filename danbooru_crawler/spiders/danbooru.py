@@ -21,7 +21,7 @@ class DanbooruSpider(scrapy.Spider):
         # 下一页
         next_url = response.xpath('//a[@rel="next" and @href]/@href').get()
         if next_url is not None:
-            self.logger.info(f"下一页 {next_url}")
+            self.logger.info(f"下一页 {parse.urljoin(self.url,next_url)}")
             yield response.follow(next_url, callback=self.parse, priority=3)
 
     def parse_pic_page_url(self, response):
