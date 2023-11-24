@@ -8,8 +8,8 @@
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 BOT_NAME = "danbooru_crawler"
-SEARCH_TAG = "boxing_gloves"
-SEARCH_TYPE = 0  # 0 / 1 是否抓取缩略图，0代表抓缩略图，1代表原图
+SEARCH_TAG = "set"
+SEARCH_TYPE = 1  # 0 / 1 是否抓取缩略图，0代表抓缩略图，1代表原图
 SEARCH_LINK = False  # True / False 连锁搜索(即搜索子图，训练画风可以打开，训练概念等会出现与tag特征不符的图导致污染训练集)
 
 SPIDER_MODULES = ["danbooru_crawler.spiders"]
@@ -66,8 +66,8 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    #     # "danbooru_crawler.pipelines.DanbooruCrawlerPipeline": 300,
-    "scrapy.pipelines.images.ImagesPipeline": 1,
+    "danbooru_crawler.pipelines.PicsDownloadPipeline": 1,
+    # "scrapy.pipelines.PicsDownloadPipeline": 1,
 }
 IMAGES_STORE = "./pics"
 

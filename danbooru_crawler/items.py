@@ -13,5 +13,6 @@ class DanbooruCrawlerItem(scrapy.Item):
 
 
 class ImagedownloadItem(scrapy.Item):
+    image_name = scrapy.Field()
     image_urls = scrapy.Field()
     images = scrapy.Field()
