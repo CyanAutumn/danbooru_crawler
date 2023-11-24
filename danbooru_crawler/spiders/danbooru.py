@@ -48,10 +48,11 @@ class DanbooruSpider(scrapy.Spider):
         self.logger.info(f"资源url {img_url}")
         tags = response.xpath("//@data-tags").get()
         name = img_url.split("/")[-1].split(".")[0]
-        with open(f"./pics/{name}.txt", "w") as txt_file:
-            tags = tags.split(" ")
-            tags = ",".join(tags)
-            txt_file.write(tags)
+        if settings.SEARCH_TAG:
+            with open(f"./pics/{name}.txt", "w") as txt_file:
+                tags = tags.split(" ")
+                tags = ",".join(tags)
+                txt_file.write(tags)
         img_items = items.ImagedownloadItem()
         img_items["image_urls"] = [img_url]
         img_items["image_name"] = name

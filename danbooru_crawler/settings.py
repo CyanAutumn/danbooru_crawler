@@ -11,9 +11,11 @@ BOT_NAME = "danbooru_crawler"
 SEARCH_TAG = "tsubasa_tsubasa"
 SEARCH_TYPE = 1  # 0 / 1 是否抓取缩略图，0代表抓缩略图，1代表原图
 SEARCH_LINK = False  # True / False 连锁搜索(即搜索子图，训练画风可以打开，训练概念等会出现与tag特征不符的图导致污染训练集)
+SEARCH_TAG = True  # True / False 是否一并抓取图片自身的tag，推荐打开
 
 SPIDER_MODULES = ["danbooru_crawler.spiders"]
 NEWSPIDER_MODULE = "danbooru_crawler.spiders"
+IMAGES_STORE = "./pics"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -69,7 +71,6 @@ ITEM_PIPELINES = {
     "danbooru_crawler.pipelines.PicsDownloadPipeline": 1,
     # "scrapy.pipelines.PicsDownloadPipeline": 1,
 }
-IMAGES_STORE = "./pics"
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
