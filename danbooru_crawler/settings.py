@@ -8,7 +8,7 @@
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 BOT_NAME = "danbooru_crawler"
-SEARCH_TAG = "set"
+SEARCH_TAG = "tsubasa_tsubasa"
 SEARCH_TYPE = 1  # 0 / 1 是否抓取缩略图，0代表抓缩略图，1代表原图
 SEARCH_LINK = False  # True / False 连锁搜索(即搜索子图，训练画风可以打开，训练概念等会出现与tag特征不符的图导致污染训练集)
 

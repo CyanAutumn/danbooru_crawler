@@ -47,7 +47,7 @@ class DanbooruSpider(scrapy.Spider):
             img_url = response.xpath("//section/picture/source/@srcset").get()
         self.logger.info(f"资源url {img_url}")
         tags = response.xpath("//@data-tags").get()
-        name = img_url.split("/")[-1]
+        name = img_url.split("/")[-1].split(".")[0]
         with open(f"./pics/{name}.txt", "w") as txt_file:
             tags = tags.split(" ")
             tags = ",".join(tags)
